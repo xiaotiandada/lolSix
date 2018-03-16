@@ -45,7 +45,7 @@ gulp.task('build-js',function(){
     return gulp.src('./es6/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel())
-    .pipe(concat("all.js"))
+    // .pipe(concat("all.js"))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("./public/js"));
 });

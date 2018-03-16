@@ -1,21 +1,31 @@
-let i = 1
-let div = document.getElementsByClassName('animate_div')[0]
-let className = 'ans_btn' + i
 
-// 每隔一段时间调用自己更换背景图
+(function(){
+    let navBtns = $('#nav i')
+    let navBtnli = $('#nav li')
+    let numLi = 1
+    let classNames =  'ans2_btn' + numLi
+    let navI = null
+    let time = null
 
-const run = () => {
-    if ( i > 25 ){
-        i = 1
+    navBtnli.on('mouseover',function(){
+        navI = $(this).children('i')
+        run()
+    })
+    navBtnli.on('mouseout',function(){
+        clearTimeout(time)
+        // navI.removeClass()
+        navI.css('display','none')
+    })
+
+    function run(){
+        if(numLi > 25){
+            numLi = 1
+        }
+        navI.css('display','block')        
+        navI.removeClass()
+        navI.addClass('ans2_btn' + numLi)
+        numLi++
+        time = setTimeout(run, 30)
     }
 
-    div.classList.remove(className)
-    className = 'ans_btn' + i
-    div.classList.add(className)
-
-    i++
-
-    setTimeout(run, 50)
-}
-
-run()
+})()
