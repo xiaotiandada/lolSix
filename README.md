@@ -8,7 +8,7 @@
 [掘金文章](https://juejin.im/entry/59ad11f3f265da247158203d)　
 [活动页面](http://lol.qq.com/act/a20170810sixyears/index.html?ADTAG=lolweb.index) 
 
-## start　直接点开index.html　也是可以的233～
+## start　　　npm 了 jquery 谨记谨记！
 
 ``` bash
 # install dependencies
