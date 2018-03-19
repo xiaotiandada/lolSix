@@ -1,8 +1,10 @@
 # lolSix
 
-> 模仿lol六周年狂欢胜典官网页面做的局部效果
+模仿lol六周年狂欢胜典官网页面做的局部效果
 
-> 我是整体效果图
+自己写的文章,大佬们可以看看[传送](https://xiaotiandada.github.io/) [掘金地址](https://juejin.im/post/5aaf4c506fb9a028c812a862) [简书](https://www.jianshu.com/p/722efc1576b6)
+
+![效果图](/public/img/lolsix.png)
 
 > 效果参考了:　
 [掘金文章](https://juejin.im/entry/59ad11f3f265da247158203d)　
