@@ -8,7 +8,7 @@
 [掘金文章](https://juejin.im/entry/59ad11f3f265da247158203d)　
 [活动页面](http://lol.qq.com/act/a20170810sixyears/index.html?ADTAG=lolweb.index) 
 
-## start　　　npm 了 jquery 谨记谨记！
+## start　
 
 ``` bash
 # install dependencies
@@ -18,9 +18,10 @@ npm install
 gulp
 
 ```
+当然你也可以直接打开 都是没有问题的
 
 ##
 
-> 以后还会不断完善！！！
+以后还会不断完善！！！
 
-> 如果觉得不错的话记得点个小星星 Star 蟹蟹～～
+如果觉得不错的话记得点个小星星 Star 蟹蟹～～
