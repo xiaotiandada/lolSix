@@ -33,15 +33,13 @@
     });
 
     function run(obj, name, num) {
-        var nameNav = name;
-
         function runs() {
             if (num > 25) {
                 num = 1;
             }
             obj.css('display', 'block');
             obj.removeClass();
-            obj.addClass(nameNav + num);
+            obj.addClass(name + num);
             num++;
             time = setTimeout(function () {
                 clearTimeout(time);
