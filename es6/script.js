@@ -1,64 +1,66 @@
-
-(function(){
+(function () {
     let navBtns = $('#nav-ul i')
     let navBtnli = $('#nav-ul li')
-    let numLi = 1
-    let navI = null
-    let time = null
-    let nametop = null
-
     let navhs = $('#nav li')
     let navhem = $('#nav em')
-    let numh = 1
-    let navh = null
-    let timeh = null
-    let nameh = null
+    let numLi = {
+        numi: 1,
+        numh: 1
+    }
+    let time = null
 
-    navBtnli.on('mouseover',function(){
-        navI = $(this).children('i')
-        nametop = 'ans2_btn' 
-        run('ans2_btn')
+    navBtnli.on('mouseover', function () {
+        let navI = $(this).children('i')
+        run(navI, 'ans2_btn', numLi.numi)
     })
-    navBtnli.on('mouseout',function(){
-        clearTimeout(time)
-        navI.css('display','none')
+    navBtnli.on('mouseout', function () {
+        let target = $(this).children('i')
+        stop(target)
     })
 
-    navhs.on('mouseover',function(){
+    navhs.on('mouseover', function () {
         $(this).removeClass('ligb')
-        navh =  $(this).children('em')
-        nameh = 'ans_btn'
-        runh()
+        let navh = $(this).children('em')
+        run(navh, 'ans_btn', numLi.numh)
     })
 
-    navhs.on('mouseout',function(){
-        clearTimeout(timeh)
-        navh.css('display','none')        
-        $(this).children('em').removeClass()        
-        $(this).addClass('ligb')        
+    navhs.on('mouseout', function () {
+        let target = $(this).children('em')
+        stop(target)
+        $(this).addClass('ligb')
     })
 
+    function run(obj, name, num) {
+        let nameNav = name
 
-    function run(){
-        if(numLi > 25){
-            numLi = 1
+        function runs() {
+            if (num > 25) {
+                num = 1
+            }
+            obj.css('display', 'block')
+            obj.removeClass()
+            obj.addClass(nameNav + num)
+            num++
+            time = setTimeout(function () {
+                clearTimeout(time)
+                runs()
+            }, 30)
         }
-        navI.css('display','block')        
-        navI.removeClass()
-        navI.addClass(nametop + numLi)
-        numLi++
-        time = setTimeout(run, 30)
+        runs()
     }
 
-    function runh(){
-        if(numh > 25){
-            numh = 1
-        }
-        navh.css('display','block')        
-        navh.removeClass()
-        navh.addClass(nameh + numh)
-        numh++
-        timeh = setTimeout(runh, 30)
+    function stop(target) {
+        clearTimeout(time)
+        target.css('display', 'none')
     }
+
+    setTimeout(function () {
+        if ($(".mymovie").length > 0) {
+            $(".logob").css({
+                "display": "block"
+            });
+        }
+    }, 1000)
+
 
 })()

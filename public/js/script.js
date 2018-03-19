@@ -3,62 +3,65 @@
 (function () {
     var navBtns = $('#nav-ul i');
     var navBtnli = $('#nav-ul li');
-    var numLi = 1;
-    var navI = null;
-    var time = null;
-    var nametop = null;
-
     var navhs = $('#nav li');
     var navhem = $('#nav em');
-    var numh = 1;
-    var navh = null;
-    var timeh = null;
-    var nameh = null;
+    var numLi = {
+        numi: 1,
+        numh: 1
+    };
+    var time = null;
 
     navBtnli.on('mouseover', function () {
-        navI = $(this).children('i');
-        nametop = 'ans2_btn';
-        run('ans2_btn');
+        var navI = $(this).children('i');
+        run(navI, 'ans2_btn', numLi.numi);
     });
     navBtnli.on('mouseout', function () {
-        clearTimeout(time);
-        navI.css('display', 'none');
+        var target = $(this).children('i');
+        stop(target);
     });
 
     navhs.on('mouseover', function () {
         $(this).removeClass('ligb');
-        navh = $(this).children('em');
-        nameh = 'ans_btn';
-        runh();
+        var navh = $(this).children('em');
+        run(navh, 'ans_btn', numLi.numh);
     });
 
     navhs.on('mouseout', function () {
-        clearTimeout(timeh);
-        navh.css('display', 'none');
-        $(this).children('em').removeClass();
+        var target = $(this).children('em');
+        stop(target);
         $(this).addClass('ligb');
     });
 
-    function run() {
-        if (numLi > 25) {
-            numLi = 1;
+    function run(obj, name, num) {
+        var nameNav = name;
+
+        function runs() {
+            if (num > 25) {
+                num = 1;
+            }
+            obj.css('display', 'block');
+            obj.removeClass();
+            obj.addClass(nameNav + num);
+            num++;
+            time = setTimeout(function () {
+                clearTimeout(time);
+                runs();
+            }, 30);
         }
-        navI.css('display', 'block');
-        navI.removeClass();
-        navI.addClass(nametop + numLi);
-        numLi++;
-        time = setTimeout(run, 30);
+        runs();
     }
 
-    function runh() {
-        if (numh > 25) {
-            numh = 1;
-        }
-        navh.css('display', 'block');
-        navh.removeClass();
-        navh.addClass(nameh + numh);
-        numh++;
-        timeh = setTimeout(runh, 30);
+    function stop(target) {
+        clearTimeout(time);
+        target.css('display', 'none');
     }
+
+    setTimeout(function () {
+        if ($(".mymovie").length > 0) {
+            $(".logob").css({
+                "display": "block"
+            });
+        }
+    }, 1000);
 })();
 //# sourceMappingURL=script.js.map
